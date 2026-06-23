@@ -1,0 +1,54 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class LoginRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules(): array
+    {
+        return [
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'メールアドレスを入力してください。',
+            'email.email' => 'メール形式で入力してください。',
+            'password.required' => 'パスワードを入力してください。',
+        ];
+    }
+/*
+    // 一つエラーがでてもすべてチェック
+    protected $stopOnFirstFailure = false;
+
+    // 両方未入力
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            if (!$this->email && !$this->password) {
+                $validator->errors()->add('email', 'メールおよびパスワード入力してください');
+            }
+        });
+    }
+*/
+}

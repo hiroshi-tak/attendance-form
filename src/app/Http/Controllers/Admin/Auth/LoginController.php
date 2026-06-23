@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Http\Controllers\Admin\Auth;
+
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
+
+class LoginController extends Controller
+{
+    public function showLoginForm()
+    {
+        return view('admin.auth.login');
+    }
+
+    public function login(LoginRequest $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::guard('admin')->attempt($credentials)) {
+            $request->session()->regenerate();
+
+            Auth::guard('web')->logout();
+
+            return redirect()->route('admin.attendance.index');
+        }
+
+        return back()->withErrors([
+            'email' => 'ログイン情報が登録されていません。',
+        ]);
+    }
+
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect('/admin/login');
+    }
+
+}
