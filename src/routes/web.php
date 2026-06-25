@@ -29,7 +29,7 @@ use App\Http\Controllers\User\Auth\LoginController as UserLoginController;
 
 Route::middleware(['auth', 'verified'])->group(function () {
     // ログアウト
-    //Route::post('/logout', [UserLoginController::class, 'logout'])->name('logout');
+    Route::post('/logout', [UserLoginController::class, 'logout'])->name('logout');
 
     // 画面表示
     Route::get('/attendance', [AttendanceController::class, 'index'])

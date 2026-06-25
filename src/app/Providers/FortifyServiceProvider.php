@@ -13,7 +13,7 @@ use Laravel\Fortify\Contracts\LoginResponse;
 use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
 //use Laravel\Fortify\Contracts\VerifyEmailResponse;
 use Laravel\Fortify\Contracts\VerifyEmailViewResponse;
-use App\Http\Requests\LoginRequest;
+//use App\Http\Requests\LoginRequest;
 
 
 class FortifyServiceProvider extends ServiceProvider
@@ -49,7 +49,7 @@ class FortifyServiceProvider extends ServiceProvider
 
         // FortifyのLoginRequestを置き換え
         // 「メール形式で入力してください。」表示改善
-        $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
+        // $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
 
         $this->app->singleton(LoginResponse::class, function () {
             return new class implements LoginResponse {

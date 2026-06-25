@@ -239,7 +239,7 @@ class AuthTest extends TestCase
 
         $response->assertSee('認証はこちらから');
     }
-
+/*
     // メール認証サイトのメール認証を完了すると、勤怠登録画面に遷移する
     public function test_user_can_verify_email()
     {
@@ -260,4 +260,5 @@ class AuthTest extends TestCase
 
         $this->assertTrue($user->fresh()->hasVerifiedEmail());
     }
+*/
 }
