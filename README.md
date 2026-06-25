@@ -49,11 +49,6 @@ graph TD
 1. docker-compose exec php bash
 2. composer install
 3. cp .env.example .env
-   * DB_HOST=mysql
-   * DB_DATABASE=laravel_db
-   * DB_USERNAME=laravel_user
-   * DB_PASSWORD=laravel_pass
-   * MAIL_FROM_ADDRESS=test@example.com
 4. php artisan key:generate
 5. php artisan migrate
 6. php artisan db:seed
@@ -64,7 +59,6 @@ graph TD
    * DB_USERNAME=root
    * DB_PASSWORD=root
    * MAIL_MAILER=log
-   * MAIL_FROM_ADDRESS=test@example.com
    * MAIL_FROM_NAME="Test"
 8. docker-compose exec mysql bash
 9. mysql -u root -p

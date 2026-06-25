@@ -5,6 +5,8 @@
 /vendor
 .env
 .env.backup
+.env.*
+!.env.example
 .phpunit.result.cache
 docker-compose.override.yml
 Homestead.json
@@ -13,8 +15,12 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-.env.*
-!.env.example
 *.key
+
 /storage/logs/*
-/storage/framework/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/framework/testing/*
+
+!.gitkeep
