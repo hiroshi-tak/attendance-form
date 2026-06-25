@@ -52,14 +52,7 @@ graph TD
 4. php artisan key:generate
 5. php artisan migrate
 6. php artisan db:seed
-7. cp .env .env.testing
-   * APP_ENV=testing
-   * APP_KEY=
-   * DB_DATABASE=demo_test
-   * DB_USERNAME=root
-   * DB_PASSWORD=root
-   * MAIL_MAILER=log
-   * MAIL_FROM_NAME="Test"
+7. cp .env.testexample .env.testing
 8. docker-compose exec mysql bash
 9. mysql -u root -p
 10. CREATE DATABASE demo_test;
