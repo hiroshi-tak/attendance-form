@@ -55,6 +55,7 @@ graph TD
 7. cp .env.testexample .env.testing
 8. docker-compose exec mysql bash
 9. mysql -u root -p
+   - PASSWORD=root
 10. CREATE DATABASE demo_test;
 11. docker-compose exec php bash
 12. php artisan key:generate --env=testing
